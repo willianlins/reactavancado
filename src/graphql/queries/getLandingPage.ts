@@ -69,6 +69,64 @@ fragment sectionConcepts on LandingPage {
   }
 }
 
+fragment sectionModules on LandingPage{
+  sectionModules{
+    title
+    modules{
+      title
+      subtitle
+      description
+    }
+  }
+}
+
+fragment sectionAgenda on LandingPage{
+  sectionAgenda{
+    title
+    description
+  }
+}
+
+
+fragment princingBox on LandingPage {
+  pricingBox {
+    totalPrice
+    numberInstallments
+    pricingInstallments
+    benefits
+    button{
+      label
+      url
+    }
+  }
+}
+fragment sectionAbout on LandingPage{
+  sectionAboutUs{
+    title
+    authors{
+      data{
+        attributes{
+          photo{
+            data{
+              attributes{
+                alternativeText
+                url
+              }
+            }
+          }
+          name
+          role
+          description
+          socialLinks{
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+}
+
 
 query GET_LANDING_PAGE {
  landingPage{
@@ -79,9 +137,14 @@ query GET_LANDING_PAGE {
       	...sectionAboutProject
         ...sectionTech
         ...sectionConcepts
+        ...sectionModules
+        ...sectionAgenda
+        ...princingBox
+        ...sectionAbout
       }
     }
   }
 }
+
 `
 export default GET_LANDING_PAGE
