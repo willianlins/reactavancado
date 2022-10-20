@@ -127,6 +127,33 @@ fragment sectionAbout on LandingPage{
   }
 }
 
+fragment sectionFaq on LandingPage{
+  sectionFaq{
+  	title
+    questions{
+      question
+      answer
+    }
+}
+}
+
+fragment sectionReviews on LandingPage{
+  sectionReviews{
+    title
+    reviews{
+      name
+      text
+      photo{
+        data{
+          attributes{
+            url
+          }
+        }
+      }
+    }
+  }
+}
+
 
 query GET_LANDING_PAGE {
  landingPage{
@@ -141,6 +168,8 @@ query GET_LANDING_PAGE {
         ...sectionAgenda
         ...princingBox
         ...sectionAbout
+        ...sectionReviews
+        ...sectionFaq
       }
     }
   }

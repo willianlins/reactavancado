@@ -10,7 +10,6 @@ import { SectionAboutUsProps } from 'types/api'
 const SectionAboutUs = ({ title, authors }: SectionAboutUsProps) => (
   <Container>
     <Heading reverseColor>{title}</Heading>
-    {console.log(authors.data)}
     <S.Content>
       {authors.data.map((profile) => (
         <ProfileCard
